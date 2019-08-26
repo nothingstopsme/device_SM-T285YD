@@ -115,25 +115,13 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 
 # Integrated kernel building configs
 
-TARGET_KERNEL_SOURCE := kernel/samsung/gtexslte
-TARGET_KERNEL_CONFIG := gtexslte_defconfig
-TARGET_VARIANT_CONFIG := gtexslte_defconfig
-TARGET_SELINUX_CONFIG := gtexslte_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/gtexsltedd
+TARGET_KERNEL_CONFIG := gtexslte_rev04_defconfig
+TARGET_VARIANT_CONFIG := gtexslte_rev04_defconfig
+TARGET_SELINUX_CONFIG := gtexslte_rev04_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 # BOARD_MKBOOTIMG_ARGS := --base 0 --pagesize 2048
-BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
-
-# #
-SC9830_MODULES:
-	mkdir -p $(PRODUCT_OUT)/root/lib/modules
-	mkdir -p $(PRODUCT_OUT)/recovery/root/lib/modules
-	make -C $(TARGET_KERNEL_SOURCE)/external_module/wifi KDIR=$(KERNEL_OUT) clean
-	make -C $(TARGET_KERNEL_SOURCE)/external_module/wifi KDIR=$(KERNEL_OUT)
-	cp $(TARGET_KERNEL_SOURCE)/external_module/wifi/*.ko $(PRODUCT_OUT)/root/lib/modules
-	cp $(TARGET_KERNEL_SOURCE)/external_module/wifi/*.ko $(PRODUCT_OUT)/recovery/root/lib/modules
-	find -L ${KERNEL_OUT}/drivers -name "*.ko" -exec cp -f {} $(PRODUCT_OUT)/root/lib/modules \;
-
-TARGET_KERNEL_MODULES := SC9830_MODULES
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
@@ -237,27 +225,16 @@ TARGET_BOARD_BACK_CAMERA_CCIR_PCLK := source0
 # misc
 TARGET_HAS_BACKLIT_KEYS := false
 
-# RECOVERY_VARIANT := twrp
-
-TW_THEME := portrait_hdpi
-TW_HAS_DOWNLOAD_MODE := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_EXCLUDE_SUPERSU := true
-TW_BRIGHTNESS_PATH := "/sys/devices/gen-panel-backlight.29/backlight/panel/brightness"
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 162
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/20200000.usb/gadget/lun0/file"
-TARGET_RECOVERY_FSTAB = device/samsung/gtexslte/recovery.fstab
+# RECOVERY
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/boot/fstab.sc8830
+BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+BOARD_HAS_NO_SELECT_BUTTON := true
 RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
 RECOVERY_GRAPHICS_FORCE_SINGLE_BUFFER := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_FLIPPED_SCREEN := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-
-# Encryption support
-TW_INCLUDE_CRYPTO := true
 
 # Build system
 USE_NINJA := false

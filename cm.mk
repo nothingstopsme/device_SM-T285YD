@@ -5,14 +5,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-$(call inherit-product, device/samsung/gtexslte/device_gtexslte.mk)
+$(call inherit-product, device/samsung/gtexsltedd/device_gtexsltedd.mk)
 
 # Use specific resolution for bootanimation
 TARGET_BOOTANIMATION_SIZE := 720x480
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := gtexslte
-PRODUCT_NAME := cm_gtexslte
+PRODUCT_DEVICE := gtexsltedd
+PRODUCT_NAME := cm_gtexsltedd
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-T285
 PRODUCT_MANUFACTURER := samsung

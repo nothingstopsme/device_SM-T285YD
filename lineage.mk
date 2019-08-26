@@ -1,20 +1,20 @@
 # Release name
-PRODUCT_RELEASE_NAME := gtexslte
+PRODUCT_RELEASE_NAME := gtexsltedd
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-$(call inherit-product, device/samsung/gtexslte/device_gtexslte.mk)
+$(call inherit-product, device/samsung/gtexsltedd/device_gtexsltedd.mk)
 
 # Use specific resolution for bootanimation
 TARGET_BOOTANIMATION_SIZE := 720x480
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := gtexslte
-PRODUCT_NAME := lineage_gtexslte
+PRODUCT_DEVICE := gtexsltedd
+PRODUCT_NAME := lineage_gtexsltedd
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-T285
+PRODUCT_MODEL := SM-T285YD
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_CHARACTERISTICS := tablet
 

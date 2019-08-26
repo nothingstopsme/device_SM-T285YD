@@ -13,7 +13,7 @@
 set -e
 
 VENDOR=samsung
-DEVICE=gtexslte
+DEVICE=gtexsltedd
 
 if [ $# -eq 0 ]; then
   SRC=adb
