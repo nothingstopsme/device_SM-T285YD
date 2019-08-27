@@ -121,7 +121,7 @@ TARGET_VARIANT_CONFIG := gtexslte_rev04_defconfig
 TARGET_SELINUX_CONFIG := gtexslte_rev04_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 # BOARD_MKBOOTIMG_ARGS := --base 0 --pagesize 2048
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $ device/samsung/gtexsltedd/mkbootimg.mk
 
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
@@ -226,7 +226,7 @@ TARGET_BOARD_BACK_CAMERA_CCIR_PCLK := source0
 TARGET_HAS_BACKLIT_KEYS := false
 
 # RECOVERY
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/boot/fstab.sc8830
+TARGET_RECOVERY_FSTAB := $ device/samsung/gtexsltedd/rootdir/boot/fstab.sc8830
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
