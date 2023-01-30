@@ -144,3 +144,4 @@ service swapon /sbin/sswap -s
     user root
     group root
     oneshot
+		seclabel u:r:sswap:s0

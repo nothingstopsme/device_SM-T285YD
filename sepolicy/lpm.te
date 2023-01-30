@@ -1,0 +1,33 @@
+type lpm, domain;
+type lpm_exec, exec_type, file_type;
+init_daemon_domain(lpm)
+
+# Write to /dev/kmsg
+allow lpm kmsg_device:chr_file rw_file_perms;
+
+r_dir_file(lpm, sysfs)
+allow lpm sysfs:file write;
+
+r_dir_file(lpm, efs_file)
+allow lpm efs_file:file write;
+
+allow lpm system_file:file { read open };
+
+allow lpm self:capability { net_admin sys_boot };
+wakelock_use(lpm)
+
+
+allow lpm graphics_device:dir r_dir_perms;
+allow lpm graphics_device:chr_file rw_file_perms;
+allow lpm input_device:dir rw_dir_perms;
+allow lpm input_device:chr_file rw_file_perms;
+allow lpm ashmem_device:chr_file execute;
+allow lpm self:process execmem;
+
+
+allow lpm self:netlink_kobject_uevent_socket create;
+allow lpm proc_sysrq:file { write open };
+
+
+
+

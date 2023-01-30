@@ -9,4 +9,9 @@ allow sswap self:capability sys_admin;
 allow sswap sswap_prop:property_service set;
 allow sswap rootfs:file entrypoint;
 allow sswap swap_device:blk_file { read write open };
-allow sswap sysfs:file write;
+allow sswap sysfs:file { read write open getattr };
+
+allow sswap proc_meminfo:file { read open getattr };
+allow sswap proc:file { read open getattr };
+allow sswap rootfs:file { read open };
+allow sswap block_device:dir search;

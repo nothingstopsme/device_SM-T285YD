@@ -81,6 +81,9 @@
 /data/misc/radio(/.*)?	u:object_r:radio_data_file:s0
 /sys/class/android_usb/android0(/.*)?  u:object_r:sysfs_ss_writable:s0
 
+
+#executables
+
 /sbin/sswap           u:object_r:sswap_exec:s0
 
 /system/bin/atd  u:object_r:agps_exec:s0
@@ -108,15 +111,16 @@
 /system/bin/smdexe  u:object_r:smdexe_exec:s0
 /system/bin/charon  u:object_r:charon_exec:s0
 /system/bin/scs     u:object_r:scs_exec:s0
-
+/system/bin/lpm			u:object_r:lpm_exec:s0
 
 #data
 /data/log(/.*)?	u:object_r:dumplog_data_file:s0
 /data/local/media(/.*)?     u:object_r:media_data_file:s0
 
+/data/\.wifiver\.info           u:object_r:radio_data_file:s0
+
 #rild related files
 /data/.battery_nv             u:object_r:batterysrv_data_file:s0
-/data/.wifiver.info           u:object_r:radio_data_file:s0
 /data/data/data_usage_rx      u:object_r:radio_data_file:s0
 /data/data/data_usage_tx      u:object_r:radio_data_file:s0
 

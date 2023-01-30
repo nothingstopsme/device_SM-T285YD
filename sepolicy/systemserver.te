@@ -9,3 +9,7 @@ allow system_server sysfs_ss_writable:lnk_file read;
 allow system_server unlabeled:file unlink;
 allow system_server wifi_data_file:sock_file unlink;
 allow system_server media_prop:file read;
+
+allow system_server system_app_service:service_manager { find add };
+allow system_server clock_device:chr_file { read write open ioctl };
+allow system_server media_rw_data_file:dir { read open getattr };

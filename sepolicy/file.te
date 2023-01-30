@@ -7,3 +7,7 @@ type dumplog_data_file, file_type;
 type batterysrv_data_file, file_type;
 type engpc_data_file, file_type;
 type sysfs_ss_writable, file_type;
+
+# exfat and ntfs have been defined in vendor/cm/sepolicy/file.te
+#type exfat, sdcard_type, fs_type, mlstrustedobject;
+#type ntfs, sdcard_type, fs_type, mlstrustedobject;

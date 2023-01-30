@@ -10,8 +10,17 @@
 /dev/block/platform/sdio_emmc/by-name/efs      /efs         ext4 nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic  wait,check
 /dev/block/platform/sdio_emmc/by-name/prodnv   /productinfo ext4 nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic  wait,check
 
+# Boot partitions
+/dev/block/platform/sdio_emmc/by-name/KERNEL   /boot        emmc defaults									 recoveryonly
+/dev/block/platform/sdio_emmc/by-name/HIDDEN   /preload     ext4 defaults									 recoveryonly
+/dev/block/platform/sdio_emmc/by-name/RECOVERY /recovery    emmc defaults									 recoveryonly
+
+
+
 # VOLD
-/devices/sdio_sd/mmc_host/mmc1*            auto                    vfat    default     voldmanaged=extSdCard:auto,noemulatedsd
+# allowing a sdcard to be able to be used as internal storage expansion 
+#/devices/sdio_sd/mmc_host/mmc1*            auto                    vfat    default     voldmanaged=extSdCard:auto,noemulatedsd
+/devices/sdio_sd/mmc_host/mmc1*	            auto                    auto    nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic     voldmanaged=expansion:auto,wait,check,encryptable=footer
 /devices/20200000.usb/usb*sda              auto                    vfat    default     voldmanaged=UsbDriveA:auto
 /devices/20200000.usb/usb*sdb              auto                    vfat    default     voldmanaged=UsbDriveB:auto
 /devices/20200000.usb/usb*sdc              auto                    vfat    default     voldmanaged=UsbDriveC:auto

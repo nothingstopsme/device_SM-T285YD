@@ -21,3 +21,14 @@ allow init swap_device:blk_file write;
 allow init sysfs_ss_writable:lnk_file read;
 allow init sysfs_ss_writable:file { read write create getattr unlink open ioctl } ;
 allow init debugfs:file write;
+
+allow init socket_device:sock_file unlink;
+allow init {
+	cache_file
+	dalvikcache_data_file
+	resourcecache_data_file
+	}:dir mounton;
+
+allow init app_data_file:{ dir file } { getattr relabelfrom };
+allow init app_data_file:dir search;
+allow init kernel:security check_context;

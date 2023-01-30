@@ -1,2 +1,4 @@
 allow sdcardd kernel:system module_request;
 allow sdcardd device:file write;
+
+allow sdcardd unlabeled:dir getattr;

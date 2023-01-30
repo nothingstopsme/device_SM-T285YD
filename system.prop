@@ -2,12 +2,17 @@
 # system.prop for gtexsltedd
 #
 
-ro.sf.lcd_density=213
+ro.sf.lcd_density=240
 ro.sf.hwrotation=180
-ro.sf.xdpi=216.17
-ro.sf.ydpi=216.746
+#ro.sf.lcd_density=213
+#ro.sf.xdpi=216.17
+#ro.sf.ydpi=216.746
 
-ro.opengles.version=131072
+#ro.opengles.version=131072
+# Pretendding to be GLES 2.1, 
+# which does not even exist but can pass the basic check used by some apps requiring the version of GLES greater than 2.0.
+# However, it still depends on the compatibility of such apps as to whether or not they can really run with the installed GLES version (2.0)
+ro.opengles.version=131073
 ro.product.hardware=SS_SHARKLS
 ro.product.modem.mode=GSM,EDGE,TD-SCDMA,WCDMA,TD-LTE,FDD-LTE
 

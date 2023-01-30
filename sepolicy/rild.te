@@ -13,7 +13,7 @@ allow rild imei_efs_file:file { open read getattr };
 allow rild at_distributor:dir search;
 allow rild at_distributor:file { open read getattr };
 allow rild rild_prop:file { getattr open read};
-allow rild self:capability dac_read_search;
+#allow rild self:capability dac_read_search;
 allow rild rild_prop:property_service set;
 
 allow rild radio_data_file:lnk_file read;
@@ -23,3 +23,8 @@ allow rild system_server:file { read getattr open };
 
 type_transition rild system_data_file:file radio_data_file;
 allow rild radio_data_file:file create_file_perms;
+
+allow rild audioserver:dir search;
+allow rild audioserver:file { read open getattr };
+
+allow rild rild:capability dac_read_search;
